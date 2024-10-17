@@ -3,7 +3,7 @@ Version:	56615
 Release:	2
 Summary:	Feynman diagrams with TikZ
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/tikz-feynman
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/tikz-feynman
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tikz-feynman.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tikz-feynman.doc.r%{version}.tar.xz
