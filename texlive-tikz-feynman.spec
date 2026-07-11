@@ -1,41 +1,27 @@
-Name:		texlive-tikz-feynman
-Version:	56615
-Release:	2
+%global tl_name tikz-feynman
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.1.0
+Release:	%{tl_revision}.1
 Summary:	Feynman diagrams with TikZ
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/tikz-feynman
+URL:		https://www.ctan.org/tex-archive/graphics/pgf/contrib/tikz-feynman
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tikz-feynman.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tikz-feynman.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/tikz-feynman.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/tikz-feynman.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Requires:	texlive(iftex)
+Requires:	texlive(pgfopts)
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This is a LaTeX package allowing Feynman diagrams to be easily
-generated within LaTeX with minimal user instructions and
-without the need of external programs. It builds upon the TikZ
-package and leverages the graph placement algorithms from TikZ
-in order to automate the placement of many vertices.
-tikz-feynman allows fine-tuned placement of vertices so that
-even complex diagrams can still be generated with ease.
+This is a LaTeX package allowing Feynman diagrams to be easily generated
+within LaTeX with minimal user instructions and without the need of
+external programs. It builds upon the TikZ package and leverages the
+graph placement algorithms from TikZ in order to automate the placement
+of many vertices. tikz-feynman allows fine-tuned placement of vertices
+so that even complex diagrams can still be generated with ease.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/latex/tikz-feynman
-%doc %{_texmfdistdir}/doc/latex/tikz-feynman
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
